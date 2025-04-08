@@ -20,11 +20,13 @@ function App() {
         <h1>Character Sheet</h1>
       </header>
       <section className="App-section">
-        <AttributesComponent
-          attributes={attributes}
-          setAttributes={setAttributes}
-        />
-        <Classes attributes={attributes} />
+        <div className="container">
+          <AttributesComponent
+            attributes={attributes}
+            setAttributes={setAttributes}
+          />
+          <Classes attributes={attributes} />
+        </div>
       </section>
     </div>
   );
