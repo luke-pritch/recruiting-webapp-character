@@ -12,9 +12,16 @@ export const Attributes = ({ attributes, setAttributes }: AttributesProps) => {
   };
 
   const updateAttribute = (attr: string, change: number) => {
+    const currentValue = attributes[attr as keyof AttributesType];
+    const newValue = currentValue + change;
+
+    if (newValue < 0 || newValue > 70) {
+      return;
+    }
+
     setAttributes({
       ...attributes,
-      [attr]: Math.max(0, attributes[attr as keyof AttributesType] + change),
+      [attr]: newValue,
     });
   };
 
