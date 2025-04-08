@@ -1,5 +1,5 @@
 import { ATTRIBUTE_LIST } from "../consts";
-import { Attributes as AttributesType } from "../types"; // type alias
+import { Attributes as AttributesType } from "../types";
 
 type AttributesProps = {
   attributes: AttributesType;
@@ -20,14 +20,15 @@ export const Attributes = ({ attributes, setAttributes }: AttributesProps) => {
 
   return (
     <div>
-      <h2>Attributes</h2>
+      <h2 className="section-title">Attributes</h2>
       {ATTRIBUTE_LIST.map((attr) => (
-        <div key={attr} style={{ margin: "10px" }}>
-          {attr}: {attributes[attr as keyof AttributesType]}
+        <div key={attr} className="item">
+          <span>
+            {attr}: {attributes[attr as keyof AttributesType]}
+          </span>
           <button onClick={() => updateAttribute(attr, 1)}>+</button>
           <button onClick={() => updateAttribute(attr, -1)}>-</button>
           <span>
-            {" "}
             Modifier:{" "}
             {calculateModifier(attributes[attr as keyof AttributesType])}
           </span>
