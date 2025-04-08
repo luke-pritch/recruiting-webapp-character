@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Attributes as AttributesComponent } from "./components/Attributes";
 import { Classes } from "./components/Classes";
+import { Skills } from "./components/Skills";
 import { Attributes } from "./types";
 
 function App() {
@@ -13,6 +14,12 @@ function App() {
     Wisdom: 10,
     Charisma: 10,
   });
+
+  const [skillPoints, setSkillPoints] = useState<Record<string, number>>({});
+
+  const calculateModifier = (value: number) => Math.floor((value - 10) / 2);
+  const intelligenceModifier = calculateModifier(attributes.Intelligence);
+  const totalPointsAvailable = 10 + 4 * intelligenceModifier;
 
   return (
     <div className="App">
@@ -26,6 +33,12 @@ function App() {
             setAttributes={setAttributes}
           />
           <Classes attributes={attributes} />
+          <Skills
+            attributes={attributes}
+            skillPoints={skillPoints}
+            setSkillPoints={setSkillPoints}
+            totalPointsAvailable={totalPointsAvailable}
+          />
         </div>
       </section>
     </div>
