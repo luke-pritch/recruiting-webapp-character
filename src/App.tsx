@@ -4,6 +4,7 @@ import "./App.css";
 import { Attributes as AttributesComponent } from "./components/Attributes";
 import { Classes } from "./components/Classes";
 import { Skills } from "./components/Skills";
+import { SkillCheck } from "./components/SkillCheck";
 import { Attributes } from "./types";
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
             setSkillPoints={setSkillPoints}
             totalPointsAvailable={totalPointsAvailable}
           />
+          <SkillCheck attributes={attributes} skillPoints={skillPoints} />
         </div>
       </section>
     </div>
